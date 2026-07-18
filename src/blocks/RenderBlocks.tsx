@@ -7,6 +7,7 @@ import { CallToActionBlock } from '@/blocks/CallToAction/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { FormBlock } from '@/blocks/Form/Component'
 import { MediaBlock } from '@/blocks/MediaBlock/Component'
+import { Form2UI } from './Form/Form2UI'
 
 const blockComponents = {
   archive: ArchiveBlock,
@@ -18,12 +19,13 @@ const blockComponents = {
 
 export const RenderBlocks: React.FC<{
   blocks: Page['layout'][0][]
+  isInsiteForm?: boolean
 }> = (props) => {
-  const { blocks } = props
+  const { blocks, isInsiteForm } = props
 
   const hasBlocks = blocks && Array.isArray(blocks) && blocks.length > 0
 
-  if (hasBlocks) {
+  if (hasBlocks && !isInsiteForm) {
     return (
       <Fragment>
         {blocks.map((block, index) => {
@@ -40,6 +42,21 @@ export const RenderBlocks: React.FC<{
                 </div>
               )
             }
+          }
+          return null
+        })}
+      </Fragment>
+    )
+  }
+
+  if (hasBlocks && isInsiteForm) {
+    return (
+      <Fragment>
+        {blocks.map((block, index) => {
+          const { blockType } = block
+          if (block && blockType === 'formBlock') {
+            // cast to any to avoid narrow type incompatibility for optional/null fields
+            return <Form2UI key={index} {...(block as any)} />
           }
           return null
         })}

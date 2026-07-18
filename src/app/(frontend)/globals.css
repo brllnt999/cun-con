@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '@heroui/styles';
 
 @config '../../../tailwind.config.mjs';
 
@@ -86,7 +87,7 @@
   }
 }
 
-:root {
+/* :root {
   --background: oklch(100% 0 0deg);
   --foreground: oklch(14.5% 0 0deg);
   --card: oklch(96.5% 0.005 265deg);
@@ -161,8 +162,154 @@
   --success: oklch(28% 0.1 200deg);
   --warning: oklch(35% 0.08 70deg);
   --error: oklch(45% 0.1 25deg);
+} */
+
+:root,
+.light,
+.default,
+[data-theme="light"],
+[data-theme="default"] {
+  /* ===== Theme 1: Green Accent (Light Mode) ===== */
+  --accent: oklch(82.00% 0.1200 155.00);
+  --accent-foreground: oklch(15% 0.0240 155.00);
+  --background: oklch(97.02% 0.0015 155.00);
+  --border: oklch(90.00% 0.0015 155.00);
+  --danger: oklch(65.32% 0.2335 13.88);
+  --danger-foreground: oklch(99.11% 0 0);
+  --default: oklch(94.00% 0.0015 155.00);
+  --default-foreground: oklch(21.03% 0.0059 155.00);
+  --field-background: oklch(100.00% 0.0008 155.00);
+  --field-border: transparent;
+  --field-foreground: oklch(21.03% 0.0015 155.00);
+  --field-placeholder: oklch(55.17% 0.0030 155.00);
+  --focus: oklch(82.00% 0.1200 155.00);
+  --foreground: oklch(21.03% 0.0015 155.00);
+  --muted: oklch(55.17% 0.0030 155.00);
+  --overlay: oklch(100.00% 0.0004 155.00);
+  --overlay-foreground: oklch(21.03% 0.0015 155.00);
+  --scrollbar: oklch(87.10% 0.0015 155.00);
+  --segment: oklch(100.00% 0.0015 155.00);
+  --segment-foreground: oklch(21.03% 0.0015 155.00);
+  --separator: oklch(92.00% 0.0015 155.00);
+  --success: oklch(73.29% 0.1941 138.95);
+  --success-foreground: oklch(21.03% 0.0059 138.95);
+  --surface: oklch(100.00% 0.0008 155.00);
+  --surface-foreground: oklch(21.03% 0.0015 155.00);
+  --surface-secondary: oklch(95.24% 0.0012 155.00);
+  --surface-secondary-foreground: oklch(21.03% 0.0015 155.00);
+  --surface-tertiary: oklch(93.73% 0.0012 155.00);
+  --surface-tertiary-foreground: oklch(21.03% 0.0015 155.00);
+  --warning: oklch(78.19% 0.1590 60.47);
+  --warning-foreground: oklch(21.03% 0.0059 60.47);
+
+  /* Border Radius */
+  --radius: 0.5rem;
+  --field-radius: 0.75rem;
+
+  /* Font Family */
+  --font-sans: var(--font-inter);
+
+  /* ===== Theme 2: Grayscale (Light Mode Overrides) ===== */
+  --card: oklch(96.5% 0.005 265deg);
+  --card-foreground: oklch(14.5% 0 0deg);
+  --popover: oklch(100% 0 0deg);
+  --popover-foreground: oklch(14.5% 0 0deg);
+  --primary: oklch(20.5% 0 0deg);
+  --primary-foreground: oklch(98.5% 0 0deg);
+  --secondary: oklch(97% 0 0deg);
+  --secondary-foreground: oklch(20.5% 0 0deg);
+  --destructive: oklch(57.7% 0.245 27.325deg);
+  --destructive-foreground: oklch(57.7% 0.245 27.325deg);
+  --input: oklch(92.2% 0 0deg);
+  --ring: oklch(70.8% 0 0deg);
+  --chart-1: oklch(64.6% 0.222 41.116deg);
+  --chart-2: oklch(60% 0.118 184.704deg);
+  --chart-3: oklch(39.8% 0.07 227.392deg);
+  --chart-4: oklch(82.8% 0.189 84.429deg);
+  --chart-5: oklch(76.9% 0.188 70.08deg);
+  --sidebar: oklch(98.5% 0 0deg);
+  --sidebar-foreground: oklch(14.5% 0 0deg);
+  --sidebar-primary: oklch(20.5% 0 0deg);
+  --sidebar-primary-foreground: oklch(98.5% 0 0deg);
+  --sidebar-accent: oklch(97% 0 0deg);
+  --sidebar-accent-foreground: oklch(20.5% 0 0deg);
+  --sidebar-border: oklch(92.2% 0 0deg);
+  --sidebar-ring: oklch(70.8% 0 0deg);
+  --error: oklch(75% 0.15 25deg);
 }
 
+.dark,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* ===== Theme 1: Green Accent (Dark Mode) ===== */
+  --accent: oklch(82.00% 0.1200 155.00);
+  --accent-foreground: oklch(15% 0.0240 155.00);
+  --background: oklch(12.00% 0.0015 155.00);
+  --border: oklch(28.00% 0.0015 155.00);
+  --danger: oklch(59.40% 0.1973 12.77);
+  --danger-foreground: oklch(99.11% 0 0);
+  --default: oklch(27.40% 0.0015 155.00);
+  --default-foreground: oklch(99.11% 0 0);
+  --field-background: oklch(21.03% 0.0030 155.00);
+  --field-border: transparent;
+  --field-foreground: oklch(99.11% 0.0015 155.00);
+  --field-placeholder: oklch(70.50% 0.0030 155.00);
+  --focus: oklch(82.00% 0.1200 155.00);
+  --foreground: oklch(99.11% 0.0015 155.00);
+  --muted: oklch(70.50% 0.0030 155.00);
+  --overlay: oklch(21.03% 0.0030 155.00);
+  --overlay-foreground: oklch(99.11% 0.0015 155.00);
+  --scrollbar: oklch(70.50% 0.0015 155.00);
+  --segment: oklch(39.64% 0.0015 155.00);
+  --segment-foreground: oklch(99.11% 0.0015 155.00);
+  --separator: oklch(25.00% 0.0015 155.00);
+  --success: oklch(73.29% 0.1941 138.95);
+  --success-foreground: oklch(21.03% 0.0059 138.95);
+  --surface: oklch(21.03% 0.0030 155.00);
+  --surface-foreground: oklch(99.11% 0.0015 155.00);
+  --surface-secondary: oklch(25.70% 0.0023 155.00);
+  --surface-secondary-foreground: oklch(99.11% 0.0015 155.00);
+  --surface-tertiary: oklch(27.21% 0.0023 155.00);
+  --surface-tertiary-foreground: oklch(99.11% 0.0015 155.00);
+  --warning: oklch(82.03% 0.1392 64.48);
+  --warning-foreground: oklch(21.03% 0.0059 64.48);
+
+  /* ===== Theme 2: Grayscale (Dark Mode Overrides) ===== */
+  --card: oklch(17% 0 0deg);
+  --card-foreground: oklch(98.5% 0 0deg);
+  --popover: oklch(14.5% 0 0deg);
+  --popover-foreground: oklch(98.5% 0 0deg);
+  --primary: oklch(98.5% 0 0deg);
+  --primary-foreground: oklch(20.5% 0 0deg);
+  --secondary: oklch(26.9% 0 0deg);
+  --secondary-foreground: oklch(98.5% 0 0deg);
+  --destructive: oklch(39.6% 0.141 25.723deg);
+  --destructive-foreground: oklch(63.7% 0.237 25.331deg);
+  --input: oklch(26.9% 0 0deg);
+  --ring: oklch(43.9% 0 0deg);
+  --chart-1: oklch(48.8% 0.243 264.376deg);
+  --chart-2: oklch(69.6% 0.17 162.48deg);
+  --chart-3: oklch(76.9% 0.188 70.08deg);
+  --chart-4: oklch(62.7% 0.265 303.9deg);
+  --chart-5: oklch(64.5% 0.246 16.439deg);
+  --sidebar: oklch(20.5% 0 0deg);
+  --sidebar-foreground: oklch(98.5% 0 0deg);
+  --sidebar-primary: oklch(48.8% 0.243 264.376deg);
+  --sidebar-primary-foreground: oklch(98.5% 0 0deg);
+  --sidebar-accent: oklch(26.9% 0 0deg);
+  --sidebar-accent-foreground: oklch(98.5% 0 0deg);
+  --sidebar-border: oklch(26.9% 0 0deg);
+  --sidebar-ring: oklch(43.9% 0 0deg);
+  --error: oklch(45% 0.1 25deg);
+}
+
+/* ===== Keep radius and font-sans from grayscale if needed ===== */
+/* Note: --radius from Theme 2 was 0.625rem but not overriding Theme 1's 0.5rem */
+/* Uncomment below if you want grayscale radius instead */
+/* :root, .light, .default, [data-theme="light"] {
+  --radius: 0.625rem;
+} */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

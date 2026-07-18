@@ -31,11 +31,29 @@ export const HeaderClient: React.FC<HeaderClientProps> = ({ data }) => {
 
   return (
     <header className="container relative z-20   " {...(theme ? { 'data-theme': theme } : {})}>
-      <div className="py-8 flex justify-between">
-        <Link href="/">
-          <Logo loading="eager" priority="high" className="invert dark:invert-0" />
-        </Link>
-        <HeaderNav data={data} />
+      <div className="py-8 flex flex-row items-center justify-center gap-6">
+        {/* <Link href="/puppies"> */}
+        <div
+          className="h-10 w-10"
+          style={{
+            backgroundColor: 'blue-300',
+            WebkitMaskImage: 'url(/paw.svg)',
+            WebkitMaskSize: 'contain',
+            maskImage: 'url(/paw.svg)',
+            maskSize: 'contain',
+          }}
+        ></div>
+        <p className="text-3xl font-bold font-[] text-blue-400">Tặng cún cỏ Bảo Lộc</p>
+        <div
+          className="h-10 w-10"
+          style={{
+            backgroundColor: 'blue-300',
+            WebkitMaskImage: 'url(/paw.svg)',
+            WebkitMaskSize: 'contain',
+            maskImage: 'url(/paw.svg)',
+            maskSize: 'contain',
+          }}
+        ></div>
       </div>
     </header>
   )
