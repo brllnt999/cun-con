@@ -40,6 +40,24 @@ export const Puppies: CollectionConfig<'puppies'> = {
             type: 'textarea',
 		},
 		{
+			name: 'status',
+			type: 'select',
+			options: [
+				{
+					label: 'Available',
+					value: 'available',
+				},
+				{
+					label: 'Not Available',
+					value: 'not-available',
+				},
+			],
+			defaultValue: 'available',
+			required: true,
+			
+		},
+		
+		{
 			name: 'form',
 			type: 'blocks',
 			blocks: [FormBlock],

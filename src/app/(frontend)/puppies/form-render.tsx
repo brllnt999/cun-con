@@ -13,7 +13,9 @@ export function PuppyForm({ children, id }: { children: React.ReactNode; id: str
             {/* <Drawer.Header>
               <Drawer.Heading>Liên hệ</Drawer.Heading>
             </Drawer.Header> */}
-            <Drawer.Body>{children}</Drawer.Body>
+            <Drawer.Body className="flex items-center justify-center w-full h-full">
+              {children}
+            </Drawer.Body>
           </Drawer.Dialog>
         </Drawer.Content>
       </Drawer.Backdrop>

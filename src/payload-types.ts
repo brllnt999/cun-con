@@ -802,14 +802,11 @@ export interface Puppy {
   images?:
     | {
         image?: (number | null) | Media;
-        /**
-         * Alt text for accessibility
-         */
-        alt?: string | null;
         id?: string | null;
       }[]
     | null;
   description?: string | null;
+  status: 'available' | 'not-available';
   form: FormBlock[];
   /**
    * When enabled, the slug will auto-generate from the title field on save and autosave.
@@ -1417,10 +1414,10 @@ export interface PuppiesSelect<T extends boolean = true> {
     | T
     | {
         image?: T;
-        alt?: T;
         id?: T;
       };
   description?: T;
+  status?: T;
   form?:
     | T
     | {

@@ -21,9 +21,15 @@ export default async function Puppies() {
           <div key={puppy.id} className="container mx-auto flex flex-col gap-6 items-center ">
             <h2 className="text-2xl font-bold">{puppy.name}</h2>
             <PuppiesImageStack puppy={puppy} />
-            <PuppyForm id={`puppy-form-${idx}`} key={puppy.id}>
-              <RenderBlocks blocks={puppy.form} isInsiteForm />
-            </PuppyForm>
+            {puppy.status === 'available' ? (
+              <PuppyForm id={`puppy-form-${idx}`} key={puppy.id}>
+                <RenderBlocks blocks={puppy.form} isInsiteForm />
+              </PuppyForm>
+            ) : (
+              <div className="text-blue-500 text-lg border-1 border-accent bg-accent-100 rounded-full px-4 py-2">
+                Đã tặng
+              </div>
+            )}
           </div>
         ))}
       </div>
