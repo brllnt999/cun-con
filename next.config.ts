@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: path.resolve(dirname),
   },
-  allowedDevOrigins: ['192.168.101.12','192.168.1.12','192.168.1.6'],
+  allowedDevOrigins: ['192.168.101.12','192.168.1.12','192.168.1.6','192.168.1.113'],
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })

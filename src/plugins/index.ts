@@ -97,6 +97,7 @@ export const plugins: Plugin[] = [
       options: {
         token: process.env.UPLOADTHING_TOKEN,
         acl: 'public-read',
-      },
+     },
+      clientUploads: true
     }),
 ]
