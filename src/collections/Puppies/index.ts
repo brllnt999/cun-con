@@ -30,12 +30,9 @@ export const Puppies: CollectionConfig<'puppies'> = {
 					name: 'image',
 					type: 'upload',
 					relationTo: 'media',
+					
 				},
-				{
-					name: 'alt',
-					type: 'text',
-					admin: { description: 'Alt text for accessibility' },
-				},
+				
 			],
         },
         {

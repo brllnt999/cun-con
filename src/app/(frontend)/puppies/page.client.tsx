@@ -24,9 +24,9 @@ export const PuppiesImageStack = ({ puppy, solo }: { puppy: Puppy; solo?: boolea
                 role="img"
                 aria-label={image.image?.alt || `puppy-${idx}`}
                 style={
-                  image.image?.url
+                  image.image?.thumbnailURL
                     ? {
-                        backgroundImage: `url(${image.image.url})`,
+                        backgroundImage: `url(${image.image.thumbnailURL})`,
                         backgroundColor: 'transparent',
                         position: 'absolute',
                         inset: 0,
