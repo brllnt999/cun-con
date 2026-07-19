@@ -6,6 +6,8 @@ declare global {
       NEXT_PUBLIC_SERVER_URL: string
       VERCEL_PROJECT_PRODUCTION_URL: string
       PUBLIC_DOMAIN: string
+      UPLOADTHING_TOKEN: string
+      DATABASE_AUTH_TOKEN: string
     }
   }
 }
