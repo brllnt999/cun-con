@@ -36,7 +36,7 @@ export default async function Puppies() {
                 typeof puppy.images[0] === 'object' &&
                 typeof puppy.images[0].image === 'object' &&
                 puppy.images[0].image !== null
-                  ? puppy.images[0].image?.url
+                  ? puppy.images[0].image?.thumbnailURL
                   : null
               return (
                 <div
