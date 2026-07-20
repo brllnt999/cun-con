@@ -41,7 +41,7 @@ export default async function Puppies() {
               return (
                 <div
                   key={puppy.id}
-                  className="flex flex-col items-center justify-center p-[5mm] relative rounded-lg"
+                  className="flex flex-col items-center justify-center p-[5mm] h-[80mm] w-[65mm] relative rounded-lg"
                   style={
                     imgBg
                       ? {
