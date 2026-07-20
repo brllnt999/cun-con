@@ -4,6 +4,7 @@ import { PuppiesImageStack } from '../page.client'
 
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { PuppyForm } from '../form-render'
+import { Link } from '@payloadcms/ui/elements/Link'
 
 export default async function Puppies({ params }: { params: { id: string } }) {
   const payload = await getPayload({ config: configPromise })
@@ -28,7 +29,10 @@ export default async function Puppies({ params }: { params: { id: string } }) {
             >
               <PuppiesImageStack puppy={puppy} solo />
             </div>
-            <div className="w-xs mt-10 flex flex-col items-center justify-center">
+            <div className="w-xs mt-10 flex flex-row items-center justify-between">
+              <Link className="text-lg mb-2 text-blue-500 hover:text-blue-700" href="/puppies">
+                Xem tất cả
+              </Link>
               <PuppyForm id="form" key={puppy.id}>
                 <RenderBlocks blocks={puppy.form} isInsiteForm />
               </PuppyForm>

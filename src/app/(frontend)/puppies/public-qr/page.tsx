@@ -21,9 +21,6 @@ export default async function Puppies() {
         <div className="flex flex-col  items-center" key={idx}>
           <p>🐾 18/7 - 31/7 🐾</p>
           <p>🐾🐾 Hưng - 0974718820 🐾🐾</p>
-          <p className="text-xs">
-            Không quảng cáo, không mã độc, dữ liệu sẽ được xoá sau khi sử dụng
-          </p>
           <div
             key={idx}
             className="grid w-[148mm]
@@ -41,7 +38,7 @@ export default async function Puppies() {
               return (
                 <div
                   key={puppy.id}
-                  className="flex flex-col items-center justify-center p-[5mm] h-[80mm] w-[65mm] relative rounded-lg"
+                  className="flex flex-col items-center justify-center p-[5mm] h-[85mm] w-[60mm] relative rounded-lg"
                   style={
                     imgBg
                       ? {
