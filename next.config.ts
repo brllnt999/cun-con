@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
     ],
     qualities: [100],
     remotePatterns: [
-      ...[NEXT_PUBLIC_SERVER_URL ,'https://wrjzdskrd.ufs.she'].map((item) => {
+      ...[NEXT_PUBLIC_SERVER_URL ,'https://wrjzdskrd.ufs.sh','http://127.0.0.1', 'http://192.168.1.11'].map((item) => {
         const url = new URL(item)
 
         return {

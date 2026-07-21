@@ -156,7 +156,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         quality={100}
         loading={loading}
         sizes={sizes}
-        src={src}
+        src={`${src}`}
         width={!fill ? width : undefined}
       />
     </picture>
