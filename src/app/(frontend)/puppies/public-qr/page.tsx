@@ -2,6 +2,8 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import { QRCode } from 'react-qr-code'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Puppies() {
   const payload = await getPayload({ config: configPromise })
 
