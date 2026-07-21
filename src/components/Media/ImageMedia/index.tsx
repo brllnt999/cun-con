@@ -118,7 +118,7 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     imgClassName,
     priority,
     resource,
-    size: sizeFromProps,
+    requestedSize: sizeFromProps,
     sizes: sizesFromProps,
     src: srcFromProps,
     loading: loadingFromProps,
