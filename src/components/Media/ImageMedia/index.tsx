@@ -8,75 +8,10 @@ import React from 'react'
 
 import type { Props as MediaProps } from '../types'
 
-import type { Media as MediaType } from '@/payload-types'
-
 import { cssVariables } from '@/cssVariables'
 import { getMediaUrl } from '@/utilities/getMediaUrl'
 
 const { breakpoints } = cssVariables
-
-const knownMediaSizeKeys = [
-  'thumbnail',
-  'square',
-  'small',
-  'medium',
-  'large',
-  'xlarge',
-  'og',
-] as const
-
-type KnownMediaSizeKey = (typeof knownMediaSizeKeys)[number]
-
-type MediaVariant = {
-  url?: string | null
-  width?: number | null
-  height?: number | null
-}
-
-type MediaResource = Partial<MediaType> & {
-  sizes?: Partial<Record<KnownMediaSizeKey, MediaVariant>>
-}
-
-const isKnownMediaSizeKey = (value?: string): value is KnownMediaSizeKey => {
-  if (!value) return false
-
-  return knownMediaSizeKeys.includes(value.trim().toLowerCase() as KnownMediaSizeKey)
-}
-
-export const resolveMediaSource = (resource: MediaProps['resource'], requestedSize?: string) => {
-  const resolvedResource =
-    resource && typeof resource === 'object' && !Array.isArray(resource)
-      ? (resource as MediaResource)
-      : null
-
-  if (!resolvedResource) {
-    return {
-      alt: '',
-      height: undefined,
-      src: '',
-      width: undefined,
-    }
-  }
-
-  const normalizedRequestedSize = requestedSize?.trim().toLowerCase()
-  const candidateVariant =
-    normalizedRequestedSize && isKnownMediaSizeKey(normalizedRequestedSize)
-      ? resolvedResource.sizes?.[normalizedRequestedSize]
-      : undefined
-
-  const source = candidateVariant ?? {
-    url: resolvedResource.url,
-    width: resolvedResource.width,
-    height: resolvedResource.height,
-  }
-
-  return {
-    alt: resolvedResource.alt || '',
-    height: source.height ?? resolvedResource.height ?? undefined,
-    src: source.url ? getMediaUrl(source.url, resolvedResource.updatedAt) : '',
-    width: source.width ?? resolvedResource.width ?? undefined,
-  }
-}
 
 // A base64 encoded image to use as a placeholder while the image is loading
 const placeholderBlur =
@@ -118,30 +53,36 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     imgClassName,
     priority,
     resource,
-    requestedSize: sizeFromProps,
-    sizes: sizesFromProps,
+    sizes: sizeFromProps,
     src: srcFromProps,
     loading: loadingFromProps,
   } = props
 
-  const resolvedMedia = resolveMediaSource(resource, sizeFromProps)
+  let width: number | undefined
+  let height: number | undefined
+  let alt = altFromProps
+  let src: StaticImageData | string = srcFromProps || ''
 
-  let width: number | undefined = resolvedMedia.width
-  let height: number | undefined = resolvedMedia.height
-  let alt = altFromProps ?? resolvedMedia.alt
-  let src: StaticImageData | string = srcFromProps || resolvedMedia.src || ''
+  if (!src && resource && typeof resource === 'object') {
+    const { alt: altFromResource, height: fullHeight, url, width: fullWidth } = resource
+
+    width = fullWidth!
+    height = fullHeight!
+    alt = altFromResource || ''
+
+    const cacheTag = resource.updatedAt
+
+    src = getMediaUrl(url, cacheTag)
+  }
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)
 
-  const normalizedRequestedSize = sizeFromProps?.trim().toLowerCase()
-  const isVariantRequest = isKnownMediaSizeKey(normalizedRequestedSize)
-
-  const defaultSizes = Object.entries(breakpoints)
-    .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
-    .join(', ')
-
   // NOTE: this is used by the browser to determine which image to download at different screen sizes
-  const sizes = sizesFromProps || (isVariantRequest ? defaultSizes : sizeFromProps || defaultSizes)
+  const sizes = sizeFromProps
+    ? sizeFromProps
+    : Object.entries(breakpoints)
+        .map(([, value]) => `(max-width: ${value}px) ${value * 2}w`)
+        .join(', ')
 
   return (
     <picture className={cn(pictureClassName)}>
@@ -156,9 +97,8 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
         quality={100}
         loading={loading}
         sizes={sizes}
-        src={`${src}`}
+        src={src}
         width={!fill ? width : undefined}
-        unoptimized={true}
       />
     </picture>
   )
