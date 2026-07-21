@@ -6,8 +6,6 @@ import { RenderBlocks } from '@/blocks/RenderBlocks'
 import { PuppyForm } from '../form-render'
 import { Link } from '@payloadcms/ui/elements/Link'
 
-export const dynamic = 'force-dynamic'
-
 export default async function Puppies({ params }: { params: { id: string } }) {
   const payload = await getPayload({ config: configPromise })
   const { id } = await params

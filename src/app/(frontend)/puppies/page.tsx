@@ -4,8 +4,6 @@ import { PuppiesImageStack } from './page.client'
 import { PuppyForm } from './form-render'
 import { RenderBlocks } from '@/blocks/RenderBlocks'
 
-export const dynamic = 'force-dynamic'
-
 export const revalidate = 0
 export default async function Puppies() {
   const payload = await getPayload({ config: configPromise })
