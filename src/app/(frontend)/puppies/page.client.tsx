@@ -4,8 +4,11 @@ import { Media } from '@/components/Media'
 import type { Puppy } from '@/payload-types'
 
 import { cn } from '@/utilities/ui'
+import { useState } from 'react'
 
 export const PuppiesImageStack = ({ puppy, solo }: { puppy: Puppy; solo?: boolean }) => {
+  const [selected, setSelected] = useState<number | null>(null)
+
   return (
     <div
       className={cn(
@@ -20,6 +23,7 @@ export const PuppiesImageStack = ({ puppy, solo }: { puppy: Puppy; solo?: boolea
             typeof image.image === 'object' &&
             image.image !== null && (
               <div
+                onClick={() => setSelected(idx)}
                 key={image.image.id}
                 className={cn(
                   'absolute inset-0',
@@ -27,6 +31,7 @@ export const PuppiesImageStack = ({ puppy, solo }: { puppy: Puppy; solo?: boolea
                   'hover:z-50',
                   'focus-within:z-50',
                   'active:z-50',
+                  selected === idx ? 'z-50' : 'z-10',
                 )}
                 style={{
                   transform: `translateX(${(idx - 1) * 20}%) rotate(${(idx - 1) * 8}deg)`,
