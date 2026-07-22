@@ -21,7 +21,13 @@ export const PuppiesImageStack = ({ puppy, solo }: { puppy: Puppy; solo?: boolea
             image.image !== null && (
               <div
                 key={image.image.id}
-                className="absolute inset-0"
+                className={cn(
+                  'absolute inset-0',
+                  'transition-all duration-500',
+                  'hover:z-50',
+                  'focus-within:z-50',
+                  'active:z-50',
+                )}
                 style={{
                   transform: `translateX(${(idx - 1) * 20}%) rotate(${(idx - 1) * 8}deg)`,
                 }}
@@ -38,9 +44,9 @@ export const PuppiesImageStack = ({ puppy, solo }: { puppy: Puppy; solo?: boolea
                     'mt-6 rounded-2xl shadow-2xl cursor-pointer',
                     'outline-2 outline-offset-[-2px] outline-white',
                     'transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)]',
+
                     '[&:is(:hover,:focus,:active)]:-translate-y-8',
                     '[&:is(:hover,:focus,:active)]:rotate-0',
-                    '[&:is(:hover,:focus,:active)]:z-50',
                     '[&:is(:hover,:focus,:active)]:shadow-[0_0_0_4px_rgb(253_224_71),0_25px_80px_rgba(0,0,0,0.4)]',
                     idx === 0 ? 'z-10' : idx === 1 ? 'z-20' : 'z-30',
                   )}
