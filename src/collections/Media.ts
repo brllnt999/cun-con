@@ -17,6 +17,10 @@ const dirname = path.dirname(filename)
 export const Media: CollectionConfig = {
   slug: 'media',
   folders: true,
+  admin: {
+    // This forces the UploadThing `_key` to display as a column in the admin UI
+    defaultColumns: ['filename', 'alt', '_key', 'updatedAt'],
+  },
   access: {
     create: authenticated,
     delete: authenticated,
@@ -29,6 +33,7 @@ export const Media: CollectionConfig = {
       type: 'text',
       //required: true,
     },
+
     {
       name: 'caption',
       type: 'richText',

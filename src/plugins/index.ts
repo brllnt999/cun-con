@@ -92,19 +92,14 @@ export const plugins: Plugin[] = [
   }),
    uploadthingStorage({
       collections: {
-    media: {
-      generateFileURL: (file) => {
-        // file.filename represents the original file
-        const customId = `custom_${file.filename}_${Date.now()}`;
-        const appId = process.env.UPLOADTHING_APP_ID;
-        return `https://${appId}.ufs.sh/f/${customId}`;
+       media: true,
+      
       },
-    },
-  },
-  options: {
-    token: process.env.UPLOADTHING_TOKEN || '',
-    acl: 'public-read',
-    defaultKeyType: 'customId', // or access via default upload metadata
-  },
+      options: {
+        token: process.env.UPLOADTHING_TOKEN,
+        acl: 'public-read',
+     },
+     clientUploads: true,
+      alwaysInsertFields: true,
     }),
 ]

@@ -8,6 +8,10 @@ declare global {
       PUBLIC_DOMAIN: string
       UPLOADTHING_TOKEN: string
       DATABASE_AUTH_TOKEN: string
+      UPLOADTHING_APP_ID: string
+      CRON_SECRET: string
+      PREVIEW_SECRET: string
+      UPLOADTHING_HOST: string
     }
   }
 }

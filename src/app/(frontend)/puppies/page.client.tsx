@@ -29,7 +29,6 @@ export const PuppiesImageStack = ({ puppy, solo }: { puppy: Puppy; solo?: boolea
                 <Media
                   resource={image.image}
                   priority
-                  requestedSize={solo ? 'medium' : 'small'}
                   alt={image.image?.alt || `puppy-${idx}`}
                   className="absolute inset-0 w-full h-full object-cover"
                   pictureClassName="absolute inset-0 w-full h-full"
