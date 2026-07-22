@@ -33,7 +33,7 @@ export default async function Puppies() {
                 typeof puppy.images[0] === 'object' &&
                 typeof puppy.images[0].image === 'object' &&
                 puppy.images[0].image !== null
-                  ? puppy.images[0].image?.thumbnailURL
+                  ? `https://werjzdskrd.ufs.sh/f/${puppy.images[0].image?.sizes?.medium?._key}`
                   : null
               return (
                 <div
