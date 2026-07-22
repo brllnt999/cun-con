@@ -23,6 +23,7 @@ export default async function Puppies() {
         <div className="flex flex-col  items-center" key={idx}>
           <p>🐾 18/7 - 31/7 🐾</p>
           <p>🐾🐾 Hưng - 0974718820 🐾🐾</p>
+          <p>Tặng cún cỏ cho người nhận nuôi lâu dài</p>
           <div
             key={idx}
             className="grid w-[148mm]
