@@ -21,7 +21,7 @@ export default async function Puppies() {
     <div className="mx-auto flex gap-[10mm]">
       {pages.map((page, idx) => (
         <div className="flex flex-col  items-center" key={idx}>
-          <p>🐾 18/7 - 31/7 🐾</p>
+          <p>🐾 23/7 - 31/7 🐾</p>
           <p>🐾🐾 Hưng - 0974718820 🐾🐾</p>
           <p>Tặng cún cỏ cho người nhận nuôi lâu dài</p>
           <div
